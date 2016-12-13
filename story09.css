@@ -1,0 +1,29 @@
+table{
+	width:650px;
+	   border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+}
+.place{
+	width:150px;
+}
+thead{
+	border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    background: #e0ffff
+}
+thead th{
+	 padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+
+}
+tbody th{
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #efefef;
+}
