@@ -45,4 +45,19 @@ public class TestDataFactory {
 		reservation.setPeriodMinute(30);
 		return reservation;
 	}
+
+	public static BookingDetails getTestBookingDetails() {
+		BookingDetails bookingDetails=new BookingDetails();
+		bookingDetails.setRid(1);
+		bookingDetails.setUser(getTestUser());
+		bookingDetails.setRoom(getTestRoom());
+		bookingDetails.setStartYear(2016);
+		bookingDetails.setStartMonth(12);
+		bookingDetails.setStartDay(20);
+		bookingDetails.setStartHour(10);
+		bookingDetails.setStartMinute(10);
+		bookingDetails.setPeriodHour(20);
+		bookingDetails.setPeriodMinute(20);
+		return bookingDetails;
+	}
 }
