@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<HTML lang=ja>
+<head>
+<meta charset="UTF-8">
+<title>会議室予約</title>
+<link rel="stylesheet" type="text/css" href="story10.css">
+</head>
+<body>
+	<h1>会議室予約画面</h1>
+	<div align="center">
+		<img src="" width="300px" height="200px">
+	</div>
+	<!-- 以下送信フォーム -->
+	<form method="post" action="ReservationInsertServlet">
+		<table border="1" align="center">
+			<!-- 会議室のidをhidden要素で送信 valueに会議室情報入れてください -->
+			<tr class="place">
+			<td class="daimei">
+			場所<input type="hidden" name="room" value="">
+			</td>
+			<td name="content"></td>
+
+			</tr>
+			<tr class="time">
+			<td class="daimei">
+			開始時間
+			</td>
+			<td class="content">
+			<select name="year" id="id_year">
+			</select>年
+			<select name="month" id="id_month">
+			</select>月
+			<select name="day" id="id_day">
+			</select>日
+			</td>
+			</tr>
+
+			<tr class="usetime">
+			<td class="daimei">
+			利用時間
+			</td>
+			<td class="content">
+			<select name="hour">
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>時間
+			<select name="minitue">
+				<option value="0">00</option>
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="30">30</option>
+				<option value="40">40</option>
+				<option value="50">50</option>
+			</select>分
+			</td>
+			</tr>
+		</table>
+			<input type="submit" value="予約する" class="submit">
+	</form>
+	<!-- 送信フォームここまで -->
+	<!-- 以下現在日時を取得するスクリプト -->
+	<script>
+		(function() {
+			'use strict';
+			/*
+			  今日の日付データを変数todayに格納
+			 */
+			var optionLoop, this_day, this_month, this_year, today;
+			today = new Date();
+			this_year = today.getFullYear();
+			this_month = today.getMonth() + 1;
+			this_day = today.getDate();
+
+			/*
+			  ループ処理（スタート数字、終了数字、表示id名、デフォルト数字）
+			 */
+			optionLoop = function(start, end, id, this_day) {
+				var i, opt;
+
+				opt = null;
+				for (i = start; i <= end; i++) {
+					if (i === this_day) {
+						opt += "<option value='" + i + "' selected>" + i
+								+ "</option>";
+					} else {
+						opt += "<option value='" + i + "'>" + i + "</option>";
+					}
+				}
+				return document.getElementById(id).innerHTML = opt;
+			};
+
+			/*
+			  関数設定（スタート数字[必須]、終了数字[必須]、表示id名[省略可能]、デフォルト数字[省略可能]）
+			 */
+			optionLoop(this_year, this_year + 5, 'id_year', this_year);//初期値：現在の年 終了値:現在の年から5年後まで
+			optionLoop(1, 12, 'id_month', this_month);
+			optionLoop(1, 31, 'id_day', this_day);
+		})();
+	</script>
+	<!-- スクリプトここまで -->
+</body>
+</HTML>
