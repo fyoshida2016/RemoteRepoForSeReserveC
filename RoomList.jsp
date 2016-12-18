@@ -17,6 +17,7 @@
 	}
 	LinkedList<Room> rooms = (LinkedList<Room>) request.getAttribute("Rooms");
 %>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
