@@ -11,4 +11,4 @@ public class DataBaseProperty {
 
 	static final public String DB_PASSWORD = "SeReserveC";
 
-}
+};
